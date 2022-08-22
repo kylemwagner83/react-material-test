@@ -2,37 +2,74 @@ import * as React from 'react';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
+import Grid from '@mui/material/Grid'
 
 
 
 export default function Tags() {
   return (
-    <Stack spacing={3} sx={{ width: 500 }}>
 
-      <Autocomplete
-        // disablePortal
-        id="combo-box-demo"
-        options={locationArray}
-        // sx={{ width: 300 }}
-        renderInput={(params) => <TextField {...params} label="Movie" />}
-      />
+    <div>
 
-      <Autocomplete
-        multiple
-        id="tags-outlined"
-        options={top100Films}
-        getOptionLabel={(option) => option.title}
-        filterSelectedOptions
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            label="Multi select"
-            placeholder="Favorites"
+      <Grid container spacing={2}>
+
+        <Grid item xs={6}>
+          <Autocomplete
+            // disablePortal
+            id="combo-box-demo"
+            options={locationArray}
+            renderInput={(params) => <TextField {...params} label="Position" />}
           />
-        )}
-      />
+        </Grid>
 
-    </Stack>
+        <Grid item xs={6}>
+        <Autocomplete
+            // disablePortal
+            id="combo-box-demo"
+            options={locationArray}
+            renderInput={(params) => <TextField {...params} label="Location" />}
+          />
+        </Grid>
+
+        <Grid item xs={6}>
+        <Autocomplete
+            multiple
+            id="tags-outlined"
+            options={top100Films}
+            getOptionLabel={(option) => option.title}
+            filterSelectedOptions
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label="Multi select"
+                placeholder="Favorites"
+              />
+            )}
+          />
+        </Grid>
+
+        <Grid item xs={6}>
+        <Autocomplete
+            multiple
+            id="tags-outlined"
+            options={top100Films}
+            getOptionLabel={(option) => option.title}
+            filterSelectedOptions
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label="Multi select"
+                placeholder="Favorites"
+              />
+            )}
+          />
+        </Grid>
+
+      </Grid>
+
+
+    </div>
+
   );
 }
 
